@@ -1,0 +1,40 @@
+@use "../../sass/" as *;
+
+.movie-search {
+  position: relative;
+  width: 50px;
+  max-width: 500px;
+  transition: all 0.2s ease;
+
+  &.open {
+    width: 100%;
+
+    & input {
+      padding-right: 8rem;
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 2px;
+
+    @include mobile {
+      right: 1px;
+      top: 1px;
+    }
+  }
+
+  @include mobile {
+    input {
+      font-size: $font-size-mobile;
+    }
+    .small {
+      font-size: $font-size-mobile;
+    }
+  }
+}

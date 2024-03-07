@@ -1,0 +1,90 @@
+@use "../../../sass/" as *;
+.main-log {
+  border: 1px solid #dbdada;
+  max-width: 600px;
+  width: 100%;
+  margin: 35px auto;
+  padding: 4px;
+  text-align: center;
+}
+.main-form-heading {
+  box-shadow: 0 1px 3px rgba(146, 146, 146, 0.14);
+  border-bottom: 2px solid #cccccc63;
+  display: flex;
+}
+.main-heading-link {
+  display: inline-block;
+  padding: 10px 20px;
+  flex: 1;
+  color: $txt-main-color;
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &.active {
+    border-bottom: 2px solid $main-color;
+    color: $main-color;
+  }
+
+  &:hover {
+    color: $main-color;
+    border-bottom: 2px solid $main-color;
+  }
+}
+
+.main-select {
+  font-size: 2rem;
+  padding: 8px 12px;
+}
+
+.forgot-password {
+  display: block;
+  font-size: 1.6rem;
+  margin: 12px 0;
+  color: $txt-main-color;
+
+  &:hover {
+    color: $main-color;
+  }
+}
+.main-log > p {
+  margin-top: 20px;
+}
+
+.social-link {
+  font-size: 1.6rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+.g-g,
+.g-g:hover {
+  color: #fff;
+  background: #ea4235;
+}
+
+.user-form,
+.user-history {
+  border: 1px solid #9d9d9d;
+  padding: 20px;
+}
+.user-form-heading,
+.user-history-heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.user-form-heading p {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.form__input-label {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+.form__input-label span {
+  color: red;
+}
+.rdt_Table {
+  font-size: 2rem;
+}

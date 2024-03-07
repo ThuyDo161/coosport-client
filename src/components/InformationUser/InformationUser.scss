@@ -1,0 +1,39 @@
+@use "../../sass/" as *;
+.user__info {
+  color: $txt-second-color;
+  text-align: center;
+  padding: 20px;
+  width: 25%;
+  &-img {
+    font-size: 2rem;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 900;
+    color: $main-color;
+  }
+  &-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: $txt-main-color;
+    margin: 10px 0 20px;
+  }
+  &-actions {
+    font-size: 1.6rem;
+    &-item {
+      cursor: pointer;
+      margin: 8px 0;
+    }
+  }
+  &-link {
+    font-weight: 600;
+    transition: all linear 0.2s;
+    &:hover {
+      color: $main-color;
+      font-size: 1.8rem;
+    }
+    &.active {
+      color: $main-color;
+      font-size: 1.8rem;
+    }
+  }
+}

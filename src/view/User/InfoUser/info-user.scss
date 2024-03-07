@@ -1,0 +1,81 @@
+@use "../../../sass/" as *;
+.user {
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+
+  &__form,
+  &__history {
+    width: 60%;
+    margin-left: 50px;
+    margin-top: $header-shrink-height;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &-heading {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+
+      p {
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__history {
+    h3 {
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: normal;
+      font-size: 2rem;
+    }
+    a {
+      color: $main-color;
+    }
+    .badge {
+      padding: 6px 11px;
+      color: #fff;
+      border-radius: 10px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    .badge-danger {
+      background-color: #fb0b12;
+    }
+
+    .badge-success {
+      background-color: #019707;
+    }
+
+    .badge-primary {
+      background-color: #349eff;
+    }
+
+    .badge-warning {
+      background-color: #d68102;
+    }
+  }
+
+  &__info {
+    padding: 20px;
+    margin-right: 30px;
+    margin-top: 30px;
+    box-shadow: $box-shadow;
+    position: sticky;
+    top: calc(#{$header-shrink-height} + 20px);
+
+    @include mobile {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 30px;
+      position: unset;
+    }
+  }
+}

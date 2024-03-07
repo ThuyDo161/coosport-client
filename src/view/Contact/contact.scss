@@ -1,0 +1,63 @@
+@use "../../sass/" as *;
+.main-heading h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.tabs {
+  font-size: 2rem;
+}
+.img-store {
+  padding: 3rem 0;
+}
+.store-location-details {
+  @include flex(flex-start, space-around);
+  flex-direction: column;
+  padding: 3rem 0;
+
+  i.bx {
+    font-size: 2rem;
+  }
+
+  div{
+      @include flex(center, flex-start);
+  }
+
+  .name-store {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $main-color;
+  }
+}
+.tab-item {
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+
+  &:hover {
+    color: $main-color;
+  }
+}
+.tab-content {
+  margin-top: 40px;
+}
+
+.store-location,
+.store-tel,
+.store-time {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.store {
+  margin-bottom: 3rem;
+}
+.store-location > span,
+.store-tel > span,
+.store-time > span {
+  color: var(--gray);
+}
+.store-map,
+.store-map iframe {
+  width: 100%;
+  height: 185px;
+}

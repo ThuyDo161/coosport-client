@@ -1,0 +1,35 @@
+@use "../../sass/" as *;
+.footer {
+  padding: 70px 0;
+  box-shadow: $box-shadow;
+  font-size: 1.1rem;
+
+  &__logo {
+    height: 38px;
+  }
+
+  &__about {
+    p {
+      margin-bottom: 2rem;
+
+      a{
+        font-size: 2rem;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-weight: 900;
+        color: $main-color;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  &__content {
+    p {
+      margin-bottom: 1.25rem;
+    }
+  }
+}
