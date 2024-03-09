@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import banner from "../../assets/images/banner.png";
 import Grid from "../../components/Grid/Grid";
 import Helmet from "../../components/Helmet/Helmet";
 import HeroSlider from "../../components/HeroSlide/HeroSlide";
@@ -11,6 +11,7 @@ import Section, {
   SectionTitle,
 } from "../../components/Section/Section";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import { getBanners } from "../../redux/reducer/banners.slice";
 import { getSlides } from "../../redux/reducer/hero-slide.slice";
 import { getPolicies } from "../../redux/reducer/policy.slice";
 import {
@@ -21,6 +22,7 @@ import { getRandomProducts } from "../../utils/GlobalFunction";
 
 const Home = () => {
   const heroSliderStore = useAppSelector((state) => state.heroSlideData.slide);
+  const bannerStore = useAppSelector((state) => state.banners.banner);
   const policyStore = useAppSelector((state) => state.policy.policy);
   const productStore = useAppSelector((state) => state.productModal.allProduct);
   const dispatch = useAppDispatch();
@@ -28,6 +30,7 @@ const Home = () => {
   useEffect(() => {
     if (!productStore.length) dispatch(getProducts());
     dispatch(getSlides());
+    dispatch(getBanners());
     dispatch(getPolicies());
   }, []);
 
@@ -84,9 +87,17 @@ const Home = () => {
       {/* banner */}
       <Section>
         <SectionBody>
-          <Link to="/catalog">
-            <img src={banner} className="box-shadow" alt="" />
-          </Link>
+          <CCarousel indicators interval={3000}>
+            {bannerStore.map((item) => (
+              <CCarouselItem key={item.id}>
+                <CImage
+                  className="d-block w-100 box-shadow banner-item"
+                  src={item.img}
+                  alt={item.title}
+                />
+              </CCarouselItem>
+            ))}
+          </CCarousel>
         </SectionBody>
       </Section>
       {/* end banner */}

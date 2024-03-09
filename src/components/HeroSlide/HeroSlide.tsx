@@ -18,13 +18,17 @@ const HeroSlider = (props: HeroSliderPropTypes) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
-    const index = activeSlide + 1 === data.length ? 0 : activeSlide + 1;
-    setActiveSlide(index);
+    if (data.length) {
+      const index = activeSlide + 1 === data.length ? 0 : activeSlide + 1;
+      setActiveSlide(index);
+    }
   }, [activeSlide, data]);
 
   const prevSlide = () => {
-    const index = activeSlide - 1 < 0 ? data.length - 1 : activeSlide - 1;
-    setActiveSlide(index);
+    if (data.length) {
+      const index = activeSlide - 1 < 0 ? data.length - 1 : activeSlide - 1;
+      setActiveSlide(index);
+    }
   };
 
   useEffect(() => {
@@ -54,7 +58,7 @@ const HeroSlider = (props: HeroSliderPropTypes) => {
           </div>
           <div className="hero-slider__control__item">
             <div className="index">
-              {activeSlide + 1}/{data.length}
+              {data.length ? activeSlide + 1 : "0"}/{data.length}
             </div>
           </div>
           <div className="hero-slider__control__item" onClick={nextSlide}>

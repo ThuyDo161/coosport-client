@@ -145,3 +145,8 @@ img {
   color: $main-color;
   font-weight: 500;
 }
+
+img.banner-item {
+  height: 490px;
+  object-fit: contain;
+}

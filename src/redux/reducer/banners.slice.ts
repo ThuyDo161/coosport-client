@@ -1,56 +1,56 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import API from "../axios";
 
-export const getSlides = createAsyncThunk("slide/get", () => {
-  return API.get("slide/read.php")
+export const getBanners = createAsyncThunk("Banner/get", () => {
+  return API.get("banner/read.php")
     .then((response) => response.data)
     .catch((err) => err.message);
 });
 
-export interface slideInterface {
-  slide_id: string;
+export interface BannerInterface {
+  id: string;
   title: string;
-  description: string;
   img: string;
-  color: string;
-  path: string;
+  is_active: boolean;
+  created_at?: string;
+  updated_at?: string;
 }
 
-interface slideState {
-  slide: slideInterface[];
+interface BannerState {
+  banner: BannerInterface[];
   loading: "idle" | "pending" | "succeeded" | "failed";
 }
 
 const initialState = {
-  slide: [],
+  banner: [],
   loading: "idle",
-} as slideState;
+} as BannerState;
 
-export const slideSlice = createSlice({
-  name: "slide",
+export const BannerSlice = createSlice({
+  name: "Banner",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(
-      getSlides.fulfilled,
+      getBanners.fulfilled,
       (state, action: PayloadAction<any>) => {
-        const data = action.payload.slide;
+        const data: BannerInterface[] = action.payload.banners;
         if (data && data.length > 0) {
-          state.slide = data;
+          state.banner = data.filter((banner) => banner.is_active);
         } else {
-          state.slide = [];
+          state.banner = [];
         }
         state.loading = "succeeded";
       }
     );
 
-    builder.addCase(getSlides.rejected, (state) => {
+    builder.addCase(getBanners.rejected, (state) => {
       state.loading = "failed";
       console.log("Failed to fetch todos from backend!!!");
     });
   },
 });
 
-export const {} = slideSlice.actions;
+export const {} = BannerSlice.actions;
 
-export default slideSlice.reducer;
+export default BannerSlice.reducer;

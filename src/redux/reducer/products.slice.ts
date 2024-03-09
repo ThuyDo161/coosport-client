@@ -101,8 +101,10 @@ export const productsSlice = createSlice({
         const data = action.payload.product;
         if (data && data.length > 0) {
           state.allProduct = data;
-          state.loading = "succeeded";
+        } else {
+          state.allProduct = [];
         }
+        state.loading = "succeeded";
       }
     );
 
@@ -115,8 +117,8 @@ export const productsSlice = createSlice({
         const data = action.payload.product;
         if (data && data.length > 0) {
           state.searchProduct = data;
-          state.loading = "succeeded";
-        } else state.allProduct = [];
+        } else state.searchProduct = [];
+        state.loading = "succeeded";
       }
     );
 
@@ -129,8 +131,8 @@ export const productsSlice = createSlice({
         const data = action.payload.product;
         if (data && data.length > 0) {
           state.allProduct = data;
-          state.loading = "succeeded";
         } else state.allProduct = [];
+        state.loading = "succeeded";
       }
     );
 
@@ -143,8 +145,8 @@ export const productsSlice = createSlice({
         const data = action.payload.product;
         if (data && data.length > 0) {
           state.productDetail = data;
-          state.loading = "succeeded";
         } else state.allProduct = [];
+        state.loading = "succeeded";
       }
     );
 
