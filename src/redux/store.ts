@@ -6,6 +6,7 @@ import heroSliderReducer from "./reducer/hero-slide.slice";
 import policyReducer from "./reducer/policy.slice";
 import productModalReducer from "./reducer/products.slice";
 import userReducer from "./reducer/user.slice";
+import bannersReducer from "./reducer/banners.slice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     heroSlideData: heroSliderReducer,
     policy: policyReducer,
     user: userReducer,
+    banners: bannersReducer,
   },
 });
 
