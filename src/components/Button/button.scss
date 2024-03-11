@@ -1,5 +1,5 @@
 @use "../../sass/" as *;
-.btn {
+.button {
   border: 0;
   outline: 0;
   color: $btn-main-color;
@@ -14,7 +14,7 @@
     font-size: 1rem;
   }
 
-  :disabled,
+  &:disabled,
   &[disabled] {
     cursor: default;
     opacity: 0.5;

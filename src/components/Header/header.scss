@@ -34,7 +34,7 @@
   }
 
   &__logo {
-    @include tablet {
+    @include laptop {
       display: none;
     }
     @include flex(center, center);
