@@ -54,7 +54,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <div className="footer__title">Về Coosport</div>
+            <div className="footer__title">Về Tuấn Vũ Order</div>
             <div className="footer__content">
               {footerAboutLinks.map((item, index) => (
                 <p key={index}>
@@ -79,8 +79,8 @@ const Footer = () => {
             </p>
             <p>
               Hướng đến mục tiêu mang lại niềm vui ăn mặc mới mỗi ngày cho hàng
-              triệu người tiêu dùng Việt. Hãy cùng Hoàng Trung hướng đến một
-              cuộc sống năng động, tích cực hơn.
+              triệu người tiêu dùng Việt. Hãy cùng Tuấn Vũ hướng đến một cuộc
+              sống năng động, tích cực hơn.
             </p>
           </div>
         </Grid>

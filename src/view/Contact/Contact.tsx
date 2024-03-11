@@ -30,7 +30,7 @@ export default function Contact() {
                   <div className="store-location-details">
                     <div className="name-store d-flex align-items-center">
                       <i className="bx bx-home-alt"></i>
-                      Coosport Bà Triệu
+                      Tuấn Vũ Order Bà Triệu
                     </div>
                     <div className="store-location d-flex align-items-center">
                       <i className="bx bx-location-plus"></i>
@@ -66,7 +66,7 @@ export default function Contact() {
                   <div className="store-location-details d-flex flex-column align-items-baseline justify-content-between col-md-6 col-12">
                     <div className="name-store d-flex align-items-center">
                       <i className="bx bx-home-alt"></i>
-                      Coosport Trần Đại Nghĩa
+                      Tuấn Vũ Order Trần Đại Nghĩa
                     </div>
                     <div className="store-location d-flex align-items-center">
                       <i className="bx bx-location-plus"></i>
@@ -102,7 +102,7 @@ export default function Contact() {
                   <div className="store-location-details d-flex flex-column align-items-baseline justify-content-between col-md-6 col-12">
                     <div className="name-store d-flex align-items-center">
                       <i className="bx bx-home-alt"></i>
-                      Coosport Chùa Bộc
+                      Tuấn Vũ Order Chùa Bộc
                     </div>
                     <div className="store-location d-flex align-items-center">
                       <i className="bx bx-location-plus"></i>

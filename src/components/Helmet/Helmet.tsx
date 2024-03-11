@@ -6,7 +6,7 @@ type HelmetPropTypes = {
 };
 
 const Helmet = (props: HelmetPropTypes) => {
-  document.title = "Coosport - " + props.title;
+  document.title = "Tuấn Vũ Order - " + props.title;
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
