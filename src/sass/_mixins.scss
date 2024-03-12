@@ -15,3 +15,9 @@
     @content;
   }
 } ;
+
+@mixin laptop {
+  @media only screen and (max-width: $laptop-width) {
+    @content;
+  }
+} ;

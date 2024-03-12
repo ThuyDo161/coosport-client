@@ -16,20 +16,20 @@ type ButtonPropTypes = {
 const Button = (props: ButtonPropTypes) => {
   const bg = props.backgroundColor ? "bg-" + props.backgroundColor : "bg-main";
 
-  const size = props.size ? "btn-" + props.size : "";
+  const size = props.size ? "button-" + props.size : "";
 
-  const animate = props.animate ? "btn-animate" : "";
+  const animate = props.animate ? "button-animate" : "";
 
   return (
     <button
       disabled={props.disabled}
-      className={`btn ${bg} ${size} ${animate} ${props.className ?? ""}`}
+      className={`button ${bg} ${size} ${animate} ${props.className ?? ""}`}
       onClick={props.onClick ? () => props.onClick() : undefined}
       type={props.type ?? undefined}
     >
-      <span className="btn__txt">{props.children}</span>
+      <span className="button__txt">{props.children}</span>
       {props.icon ? (
-        <span className="btn__icon">
+        <span className="button__icon">
           <i className={`${props.icon}`}></i>
         </span>
       ) : null}
