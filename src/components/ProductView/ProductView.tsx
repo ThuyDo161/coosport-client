@@ -9,6 +9,7 @@ import numberWithCommas, {
 } from "../../utils/GlobalFunction";
 import Button from "../Button/Button";
 import "./product.scss";
+import { Box } from "@mantine/core";
 
 const ProductView = (props: ProductViewPropTypes) => {
   const dispatch = useAppDispatch();
@@ -31,7 +32,7 @@ const ProductView = (props: ProductViewPropTypes) => {
 
   const history = useNavigate();
 
-  let productColor = useRef<{ color: string; disabled: boolean }[]>(
+  const productColor = useRef<{ color: string; disabled: boolean }[]>(
     Array.from(
       new Set(
         props.product?.map((item) => ({
@@ -44,7 +45,7 @@ const ProductView = (props: ProductViewPropTypes) => {
       return a;
     }, [])
   );
-  let productSize = useRef<{ size: string; disabled: boolean }[]>(
+  const productSize = useRef<{ size: string; disabled: boolean }[]>(
     Array.from(
       new Set(
         props.product?.map((item) => ({
@@ -57,6 +58,8 @@ const ProductView = (props: ProductViewPropTypes) => {
       return a;
     }, [])
   );
+
+  const productImg = useRef<{ img: string[]; name: string }[]>([]);
 
   let productCount: number | undefined = useRef<number | undefined>(0).current;
   ((size: string, color: string) => {
@@ -118,8 +121,21 @@ const ProductView = (props: ProductViewPropTypes) => {
         !a.find((v) => v.size === c.size) && a.push(c);
         return a;
       }, []);
+
+      productImg.current =
+        props.product?.map((item) => ({
+          img: item.img,
+          name: item.productname,
+        })) || [];
     }
   }, [product]);
+
+  useEffect(() => {
+    const productColor = props.product?.filter(
+      (item) => item.color_code === color
+    );
+    setPreviewImg(productColor?.at(0)?.img.at(0) || product?.img[0]);
+  }, [color]);
 
   const check = () => {
     if (color === "") {
@@ -182,21 +198,19 @@ const ProductView = (props: ProductViewPropTypes) => {
     <div className="product">
       <div className="product__images">
         <div className="product__images__list">
-          <div
-            className="product__images__list__item"
-            onClick={() => setPreviewImg(product!.img[0])}
-          >
-            <img src={product?.img[0] || ""} alt="" />
-          </div>
-          <div
-            className="product__images__list__item"
-            onClick={() => setPreviewImg(product!.img[1])}
-          >
-            <img src={product?.img[1] || ""} alt="" />
-          </div>
+          {productImg.current.map((prd) =>
+            prd.img.map((img) => (
+              <div
+                className="product__images__list__item"
+                onClick={() => setPreviewImg(img)}
+              >
+                <img src={img} alt={prd.name} />
+              </div>
+            ))
+          )}
         </div>
         <div className="product__images__main">
-          <img src={previewImg || ""} alt="" />
+          <img src={previewImg || ""} alt={product?.productname} />
         </div>
         <div
           className={`product-description ${descriptionExpand ? "expand" : ""}`}
@@ -277,7 +291,10 @@ const ProductView = (props: ProductViewPropTypes) => {
                   }
                 }}
               >
-                <div className={`circle bg-${item.color}`}></div>
+                <Box
+                  className="circle"
+                  sx={{ backgroundColor: item.color }}
+                ></Box>
               </div>
             ))}
           </div>
@@ -285,7 +302,7 @@ const ProductView = (props: ProductViewPropTypes) => {
         <div className="product__info__item">
           <div className="product__info__item__title">Kích cỡ</div>
           <div className="product__info__item__list">
-            {productSize.current!.map((item, index: number) => (
+            {productSize.current.map((item, index: number) => (
               <div
                 key={index}
                 className={`product__info__item__list__item ${

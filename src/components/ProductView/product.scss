@@ -21,6 +21,16 @@
 
     &__list {
       width: 20%;
+      max-height: calc(100vh - $header-height);
+      overflow-y: auto;
+
+      @include tablet {
+        max-height: calc(100vh - $header-tablet-height);
+      }
+
+      @include mobile {
+        max-height: calc(100vh - $header-mobile-height);
+      }
 
       &__item {
         cursor: pointer;

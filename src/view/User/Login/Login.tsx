@@ -21,6 +21,7 @@ const Login = () => {
     const data = {
       username: username,
       password: password,
+      guard: "client",
     };
     dispatch(loginAPI(data))
       .unwrap()
