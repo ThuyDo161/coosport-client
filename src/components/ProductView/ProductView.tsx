@@ -134,7 +134,7 @@ const ProductView = (props: ProductViewPropTypes) => {
     const productColor = props.product?.filter(
       (item) => item.color_code === color
     );
-    setPreviewImg(productColor?.at(0)?.img.at(0) || product?.img[0]);
+    setPreviewImg(productColor?.[0]?.img[0] || product?.img[0]);
   }, [color]);
 
   const check = () => {

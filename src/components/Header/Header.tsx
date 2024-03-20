@@ -23,10 +23,6 @@ const mainNav: MainNavType[] = [
     megaDropdown: true,
   },
   {
-    display: "Tin tức",
-    path: "/news",
-  },
-  {
     display: "Liên hệ",
     path: "/contact",
   },

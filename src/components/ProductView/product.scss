@@ -201,6 +201,7 @@
   &.expand &__content {
     display: block;
     height: max-content;
+    white-space: pre-wrap;
   }
 
   &__title {
